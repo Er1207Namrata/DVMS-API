@@ -1,0 +1,47 @@
+'use strict';
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('mst_organisation_type', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      organizationType: {
+        type: Sequelize.STRING
+      },
+      createdBy: {
+        type: Sequelize.INTEGER
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedBy: {
+        type: Sequelize.INTEGER
+      },
+      updatedAt: {
+        type: Sequelize.DATE
+      },
+      isDeleted: {
+        allowNull: true,
+        defaultValue:false,
+        type: Sequelize.BOOLEAN
+      },
+      deletedBy: {
+        type: Sequelize.INTEGER
+      },      
+      isActive: {
+        allowNull: true,
+        defaultValue: true,
+        type: Sequelize.BOOLEAN
+      }
+      
+    });
+  },
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('mst_organisation_type');
+  }
+};
