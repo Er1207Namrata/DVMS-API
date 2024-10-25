@@ -8,7 +8,8 @@ const errorMiddleware = (err, req, res, next) => {
   sendErrorEmail(err);
 
   // Respond to the client
-  res.status(500).json({ message: 'Internal Server Error' });
+  res.status(500).json({ message: 'Internal Server Error' }); 
+
 };
 
 export default errorMiddleware
